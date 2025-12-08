@@ -40,7 +40,12 @@ export default function HomePage() {
 
             <div className="product-grid">
               {/* Duplicate / edit these cards as you add real images + names + prices */}
-
+<a
+  href="https://buy.stripe.com/dRm8wP2RMbha3EHdvzaAw01"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="product-link"
+>
               <article className="product-card">
                 <img src="/products/jadenimage2.jpg" alt="Flair Liner Jacket" className="product-image" />
                 <div className="product-name">Flair Liner Jacket</div>
@@ -49,7 +54,7 @@ export default function HomePage() {
                   <span>$800</span>
                 </div>
               </article>
-
+</a>
        
             </div>
           </section>
@@ -59,7 +64,15 @@ export default function HomePage() {
     <footer>
   <div className="footer-inner">
     <div className="footer-left">© Counterfeitends Studio</div>
-    <a href="#" className="footer-right">INSTAGRAM</a>
+    <a
+  href="https://www.instagram.com/counterfeitends"
+  className="footer-right"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Instagram
+</a>
+
   </div>
 </footer>
 

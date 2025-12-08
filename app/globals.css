@@ -268,17 +268,19 @@ footer {
 
 /* LEFT SIDE */
 .footer-left {
-  text-transform: lowercase;
+  text-transform: ;
   letter-spacing: 0.14em;
   white-space: nowrap;
 }
 
 /* RIGHT SIDE */
 .footer-right {
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.14em;
   text-decoration: none;
   white-space: nowrap;
+          font-family: "OCR A Extended", monospace;
+
 }
 
 
