@@ -1,4 +1,5 @@
 // app/page.js
+import { products } from "./lib/products";
 
 export default function HomePage() {
   return (
@@ -39,23 +40,22 @@ export default function HomePage() {
             </div>
 
             <div className="product-grid">
-              {/* Duplicate / edit these cards as you add real images + names + prices */}
-<a
-  href="https://buy.stripe.com/dRm8wP2RMbha3EHdvzaAw01"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="product-link"
->
-              <article className="product-card">
-                <img src="/products/jadenimage2.jpg" alt="Flair Liner Jacket" className="product-image" />
-                <div className="product-name">Flair Liner Jacket</div>
-                <div className="product-meta">
-                  <span className="product-tag"></span>
-                  <span>$800</span>
-                </div>
-              </article>
-</a>
-       
+              {products.map((product) => (
+                <a
+                  key={product.slug}
+                  href={`/product/${product.slug}`}
+                  className="product-link"
+                >
+                  <article className="product-card">
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <div className="product-name">{product.name}</div>
+                    <div className="product-meta">
+                      <span className="product-tag"></span>
+                      <span>{product.price}</span>
+                    </div>
+                  </article>
+                </a>
+              ))}
             </div>
           </section>
         </div>
