@@ -20,18 +20,6 @@ export default function HomePage() {
 
 
       <main>
-        {/* FULLSCREEN HERO MEDIA (video) */}
-        <section id="home-hero" className="hero-media">
-          <video
-            className="hero-video"
-            src="/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        </section>
-
         <div className="shell">
           {/* SHOP / INDEX SECTION ONLY */}
           <section id="shop">
