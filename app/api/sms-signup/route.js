@@ -40,28 +40,14 @@ export async function POST(request) {
     );
   }
 
-  const authorization = request.headers.get("authorization");
-  const accessToken = authorization?.match(/^Bearer\s+(.+)$/i)?.[1];
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!accessToken || !supabaseUrl || !anonKey || !serviceRoleKey) {
-    return Response.json({ error: "Verify your phone number before joining." }, { status: 401 });
-  }
-
-  const authClient = createClient(supabaseUrl, anonKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-  const { data: userData, error: authError } = await authClient.auth.getUser(accessToken);
-  const verifiedUser = userData?.user;
-
-  if (
-    authError ||
-    !verifiedUser?.phone_confirmed_at ||
-    normalizePhone(verifiedUser.phone) !== phone
-  ) {
-    return Response.json({ error: "Verify this phone number before joining." }, { status: 401 });
+  if (!supabaseUrl || !serviceRoleKey) {
+    return Response.json(
+      { error: "Signup is temporarily unavailable. Please try again later." },
+      { status: 503 },
+    );
   }
 
   const adminClient = createClient(supabaseUrl, serviceRoleKey, {

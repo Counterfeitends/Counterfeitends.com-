@@ -287,33 +287,6 @@ section {
   text-underline-offset: 3px;
 }
 
-.sms-code-note {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.sms-step-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.sms-secondary-button {
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-size: 11px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-
-.sms-secondary-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 /* PRODUCT GRID (INDEX) */
 
 .product-grid {
