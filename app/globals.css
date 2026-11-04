@@ -1,6 +1,6 @@
 @font-face {
   font-family: "OCR A Extended";
-  src: url("/fonts/OCR-A-Extended.ttf") format("truetype");
+  src: url("/fonts/OCRAEXT.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -399,6 +399,19 @@ footer {
 
 /* PRODUCT DETAIL PAGE */
 
+.listing-context {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.listing-context a {
+  color: var(--fg);
+}
+
 .product-detail {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -452,41 +465,143 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 4px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  background: #fff;
   position: sticky;
   top: 80px;
 }
 
-.product-detail-name {
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: lowercase;
+.listing-seller {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.listing-seller-avatar {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
   font-family: "OCR A Extended", monospace;
+  font-size: 12px;
+}
+
+.listing-seller-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.listing-seller-name > span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.listing-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #287348;
+  font-size: 11px;
+}
+
+.listing-availability > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #287348;
+}
+
+.product-detail-name {
+  margin-top: 2px;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
 }
 
 .product-detail-price {
-  font-size: 13px;
-  color: var(--muted);
-  letter-spacing: 0.12em;
-  font-family: "OCR A Extended", monospace;
+  color: var(--fg);
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
 .buy-button {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 10px 20px;
-  border: 1px solid var(--fg);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: lowercase;
-  font-family: "OCR A Extended", monospace;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid #1877f2;
+  border-radius: 7px;
+  background: #1877f2;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
   text-align: center;
+  transition: background var(--transition-fast);
 }
 
 .buy-button:hover {
-  background: var(--fg);
-  color: var(--bg);
+  background: #166fe5;
+}
+
+.listing-purchase-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.whatsapp-order-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.whatsapp-order-link span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.listing-payment-note {
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+}
+
+.listing-description {
+  margin-top: 4px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.listing-description h2 {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.product-detail-info .product-detail-description,
+.listing-description p {
+  max-width: none;
+  color: #4d4d4d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.product-gallery-thumbnails {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 /* RESPONSIVE */
@@ -527,5 +642,310 @@ footer {
   .product-grid {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+  }
+}
+
+/* FEATURED PRODUCT */
+
+.section-edition,
+.featured-product-kicker,
+.featured-product-availability,
+.catalog-heading,
+.product-detail-kicker,
+.product-availability p {
+  color: var(--muted);
+  font-family: "OCR A Extended", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+}
+
+.featured-product-link {
+  display: block;
+  margin-top: 22px;
+}
+
+.featured-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.72fr);
+  gap: clamp(22px, 4vw, 56px);
+  align-items: center;
+}
+
+.featured-product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.72 / 1;
+  overflow: hidden;
+  background: #1b1717;
+}
+
+.featured-product-photo {
+  object-fit: cover;
+  object-position: center 54%;
+  transition: transform 500ms ease;
+}
+
+.featured-product-link:hover .featured-product-photo {
+  transform: scale(1.025);
+}
+
+.featured-image-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 6px 8px;
+  background: rgba(17, 17, 17, 0.72);
+  color: #fff;
+  font-family: "OCR A Extended", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.featured-product-copy {
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 0 16px;
+  border-top: 1px solid var(--fg);
+  border-bottom: 1px solid var(--fg);
+}
+
+.featured-product-kicker,
+.featured-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.featured-product-copy h1 {
+  max-width: 380px;
+  font-family: "OCR A Extended", monospace;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1.05;
+  text-transform: lowercase;
+}
+
+.featured-product-description {
+  max-width: 300px;
+  margin-top: 14px;
+  color: #4d4d4d;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.featured-product-price {
+  font-family: "OCR A Extended", monospace;
+  font-size: 18px;
+}
+
+.featured-product-cta {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+  font-family: "OCR A Extended", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.featured-product-availability {
+  margin-top: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.featured-whatsapp-link {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 10px;
+  margin: 12px 0 0 auto;
+  width: fit-content;
+  font-family: "OCR A Extended", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+}
+
+.featured-whatsapp-link > span:last-child {
+  color: var(--muted);
+}
+
+.featured-whatsapp-link:hover,
+.whatsapp-order-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.catalog-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 44px 0 10px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* RED WAXED DENIM PRODUCT PAGE */
+
+.product-detail {
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.product-gallery {
+  min-width: 0;
+}
+
+.product-gallery-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #171515;
+}
+
+.product-gallery-photo {
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.product-gallery-count {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 5px 7px;
+  background: rgba(245, 245, 245, 0.88);
+  color: var(--fg);
+  font-family: "OCR A Extended", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.product-gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.product-gallery-thumbnail {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #171515;
+  cursor: pointer;
+}
+
+.product-gallery-thumbnail img {
+  object-fit: cover;
+}
+
+.product-gallery-thumbnail.is-active {
+  border-color: var(--fg);
+  outline: 1px solid var(--fg);
+  outline-offset: 2px;
+}
+
+.product-detail-featured-info {
+  gap: 16px;
+}
+
+.product-detail-featured-info .product-detail-name {
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.product-detail-featured-info .product-detail-price {
+  color: var(--fg);
+  font-size: 24px;
+}
+
+.product-detail-description {
+  max-width: 320px;
+  color: #4d4d4d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.product-availability {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.buy-button-disabled,
+.buy-button-disabled:hover {
+  background: transparent;
+  color: #777;
+  border-color: #b7b7b7;
+  cursor: not-allowed;
+}
+
+.product-availability p {
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .featured-product {
+    grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.9fr);
+    gap: 22px;
+  }
+
+  .featured-product-copy {
+    min-height: 280px;
+  }
+
+  .product-detail-featured-info {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-edition {
+    font-size: 8px;
+    text-align: right;
+  }
+
+  .featured-product {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .featured-product-image {
+    aspect-ratio: 1.15 / 1;
+  }
+
+  .featured-product-copy {
+    min-height: 270px;
+  }
+
+  .featured-product-copy h1 {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .catalog-heading {
+    margin-top: 34px;
+  }
+
+  .product-gallery-main {
+    aspect-ratio: 4 / 5;
+  }
+
+  .product-detail-featured-info {
+    position: static;
+    padding-top: 8px;
   }
 }

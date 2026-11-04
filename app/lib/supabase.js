@@ -32,11 +32,21 @@ export async function getProducts() {
     return fallbackProducts;
   }
 
-  return data.map((product) => ({
-    slug: product.slug ?? product.id,
-    name: product.name,
-    price: product.price,
-    image: product.image,
-    stripeLink: product.stripe_link ?? product.stripeLink,
-  }));
+  const fallbackBySlug = new Map(fallbackProducts.map((product) => [product.slug, product]));
+  const databaseProducts = data.map((product) => {
+    const fallback = fallbackBySlug.get(product.slug) ?? {};
+
+    return {
+      ...fallback,
+      slug: product.slug ?? product.id,
+      name: product.name ?? fallback.name,
+      price: fallback.featured ? fallback.price : product.price ?? fallback.price,
+      image: fallback.featured ? fallback.image : product.image ?? fallback.image,
+      stripeLink: fallback.stripeLink ?? product.stripe_link ?? product.stripeLink ?? null,
+    };
+  });
+  const databaseSlugs = new Set(databaseProducts.map((product) => product.slug));
+  const localProducts = fallbackProducts.filter((product) => !databaseSlugs.has(product.slug));
+
+  return [...databaseProducts, ...localProducts];
 }
