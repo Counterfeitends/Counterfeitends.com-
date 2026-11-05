@@ -3,7 +3,7 @@ export const products = [
     slug: "red-waxed-denim-jacket",
     name: "Red Waxed Denim Jacket",
     price: "$50",
-    image: "/products/red-waxed-denim/model-car-front.webp",
+    image: "/products/red-waxed-denim/shoot/IMG_2321.webp",
     stripeLink: "https://buy.stripe.com/8x200jeAuclecbd8bfaAw04",
     whatsappLink: "https://wa.me/15108294799?text=Hi%20Counterfeit%20Ends%2C%20I%27m%20interested%20in%20the%20Red%20Waxed%20Denim%20Jacket.",
     featured: true,
@@ -11,10 +11,10 @@ export const products = [
     availability: "In stock now — checkout is open.",
     gallery: [
       {
-        src: "/products/red-waxed-denim/model-car-front.webp",
-        alt: "The red waxed denim jacket worn beside a car.",
+        src: "/products/red-waxed-denim/shoot/IMG_2321.webp",
+        alt: "The red waxed denim jacket in a striking pose beside a car.",
         width: 1170,
-        height: 1584,
+        height: 1576,
       },
       {
         src: "/products/red-waxed-denim/model-car-detail.webp",

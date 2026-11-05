@@ -2,7 +2,9 @@ import { products } from "../../lib/products";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductGallery from "./ProductGallery";
+import ProductPhotoStories from "./ProductPhotoStories";
 import ZoomImage from "./ZoomImage";
+import { productPhotoGroups } from "../../lib/product-shoot";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -104,6 +106,9 @@ export default async function ProductPage({ params }) {
               )}
             </aside>
           </div>
+          {product.featured && (
+            <ProductPhotoStories groups={productPhotoGroups} name={product.name} />
+          )}
         </div>
       </main>
 
