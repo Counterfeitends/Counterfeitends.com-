@@ -9,7 +9,10 @@ export default function ProductGallery({ images, name }) {
 
   return (
     <div className="product-gallery" role="region" aria-label={`${name} product photos`}>
-      <div className="product-gallery-main">
+      <div
+        className="product-gallery-main"
+        style={{ aspectRatio: `${activeImage.width} / ${activeImage.height}` }}
+      >
         <Image
           src={activeImage.src}
           alt={activeImage.alt}
@@ -34,7 +37,12 @@ export default function ProductGallery({ images, name }) {
             aria-label={`Show photo ${index + 1}: ${image.alt}`}
             aria-pressed={index === activeIndex}
           >
-            <Image src={image.src} alt="" fill sizes="(max-width: 600px) 22vw, 100px" />
+            <Image
+              src={image.src}
+              alt=""
+              fill
+              sizes="(max-width: 600px) 84px, (max-width: 900px) 20vw, 140px"
+            />
           </button>
         ))}
       </div>

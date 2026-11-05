@@ -600,10 +600,6 @@ footer {
   line-height: 1.6;
 }
 
-.product-gallery-thumbnails {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
@@ -621,6 +617,10 @@ footer {
 
   .product-detail {
     grid-template-columns: 1fr;
+  }
+
+  .product-gallery-thumbnails {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .sms-signup {
@@ -643,6 +643,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
+
 }
 
 /* FEATURED PRODUCT */
@@ -805,15 +806,13 @@ footer {
 .product-gallery-main {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
   border: 1px solid var(--border);
   background: #171515;
 }
 
 .product-gallery-photo {
-  object-fit: cover;
-  object-position: center 52%;
+  object-fit: contain;
 }
 
 .product-gallery-count {
@@ -830,22 +829,22 @@ footer {
 
 .product-gallery-thumbnails {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 8px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .product-gallery-thumbnail {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: #171515;
+  background: #f5f5f5;
   cursor: pointer;
 }
 
 .product-gallery-thumbnail img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .product-gallery-thumbnail.is-active {
@@ -940,12 +939,43 @@ footer {
     margin-top: 34px;
   }
 
-  .product-gallery-main {
-    aspect-ratio: 4 / 5;
-  }
-
   .product-detail-featured-info {
     position: static;
     padding-top: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-gallery {
+    margin-inline: -14px;
+  }
+
+  .product-gallery-main {
+    border-inline: 0;
+  }
+
+  .product-gallery-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0 14px 5px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    touch-action: pan-x;
+  }
+
+  .product-gallery-thumbnail {
+    flex: 0 0 84px;
+    width: 84px;
+    height: 112px;
+    scroll-snap-align: start;
   }
 }
