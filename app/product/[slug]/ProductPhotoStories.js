@@ -12,7 +12,7 @@ function PhotoCarousel({ group, groupIndex, onSelect }) {
 
     const card = rail.querySelector(".product-story-card");
     const distance = card ? card.getBoundingClientRect().width + 12 : rail.clientWidth;
-    rail.scrollBy({ left: direction * distance, behavior: "smooth" });
+    rail.scrollBy({ left: direction * distance, behavior: "instant" });
   }
 
   return (
